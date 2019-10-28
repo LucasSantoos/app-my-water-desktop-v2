@@ -51,7 +51,7 @@ public class Pessoa implements Serializable{
         this.tipoPessoa = tipoPessoa;
     }
 
-    public Pessoa(int id, String cpf, Date dtNasc, TipoPessoa tipoPessoa, String nome) {
+    public Pessoa(int id, String cpf, Date dtNasc,  String nome, TipoPessoa tipoPessoa) {
         setNome(nome);
         this.id = id;
         this.cpf = cpf;
@@ -123,4 +123,9 @@ public class Pessoa implements Serializable{
         }
         return true;
     }   
+    
+    @Override
+    public String toString() {
+        return this.nome;
+    }
 }

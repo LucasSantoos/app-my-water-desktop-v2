@@ -43,7 +43,7 @@ public class PessoaTelefone implements Serializable{
         this.pessoa = pessoa;
     }
 
-    public PessoaTelefone(int id, String nroTelefone, Pessoa pessoa, String nome) {
+    public PessoaTelefone(int id, String nome, String nroTelefone, Pessoa pessoa) {
         this.id = id;
         this.nroTelefone = nroTelefone;
         this.pessoa = pessoa;

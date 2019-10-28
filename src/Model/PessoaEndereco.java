@@ -49,8 +49,8 @@ public class PessoaEndereco implements Serializable{
         this.id = id;
         this.numero = numero;
         this.bairro = bairro;
-        this.pessoa = pessoa;
-        this.cidade = cidade;
+        setPessoa(pessoa);
+        setCidade(cidade);
     }
 
     public PessoaEndereco(int id, String numero, String bairro, Pessoa pessoa, Cidade cidade, String nome) {

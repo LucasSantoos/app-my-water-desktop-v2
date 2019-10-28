@@ -41,7 +41,7 @@ public class FrameMenu extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jMenu1.setText("File");
+        jMenu1.setText("Menu");
 
         btnOpenPessoas.setText("Pessoas");
         btnOpenPessoas.addActionListener(new java.awt.event.ActionListener() {
@@ -111,14 +111,20 @@ public class FrameMenu extends javax.swing.JFrame {
 
     private void btnOpenPessoasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnOpenPessoasActionPerformed
         // TODO add your handling code here:
+        DialogPessoa dialogPessoa = new DialogPessoa(this, rootPaneCheckingEnabled);
+        dialogPessoa.setVisible(true);
     }//GEN-LAST:event_btnOpenPessoasActionPerformed
 
     private void btnOpenTelefonesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnOpenTelefonesActionPerformed
         // TODO add your handling code here:
+        DialogTelefone dialogTelefone = new DialogTelefone(this, rootPaneCheckingEnabled);
+        dialogTelefone.setVisible(true);
     }//GEN-LAST:event_btnOpenTelefonesActionPerformed
 
     private void btnOpenEnderecosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnOpenEnderecosActionPerformed
         // TODO add your handling code here:
+        DialogEndereco dialogEndereco = new DialogEndereco(this, rootPaneCheckingEnabled);
+        dialogEndereco.setVisible(true);
     }//GEN-LAST:event_btnOpenEnderecosActionPerformed
 
     private void btnOpenCidadeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnOpenCidadeActionPerformed
