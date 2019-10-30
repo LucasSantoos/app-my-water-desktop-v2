@@ -43,6 +43,7 @@ public class FrameMenu extends javax.swing.JFrame {
 
         jMenu1.setText("Menu");
 
+        btnOpenPessoas.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_P, java.awt.event.InputEvent.CTRL_MASK));
         btnOpenPessoas.setText("Pessoas");
         btnOpenPessoas.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -51,6 +52,7 @@ public class FrameMenu extends javax.swing.JFrame {
         });
         jMenu1.add(btnOpenPessoas);
 
+        btnOpenTelefones.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_T, java.awt.event.InputEvent.CTRL_MASK));
         btnOpenTelefones.setText("Telefones");
         btnOpenTelefones.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -59,6 +61,7 @@ public class FrameMenu extends javax.swing.JFrame {
         });
         jMenu1.add(btnOpenTelefones);
 
+        btnOpenEnderecos.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_E, java.awt.event.InputEvent.CTRL_MASK));
         btnOpenEnderecos.setText("Endereços");
         btnOpenEnderecos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -67,6 +70,7 @@ public class FrameMenu extends javax.swing.JFrame {
         });
         jMenu1.add(btnOpenEnderecos);
 
+        btnOpenCidade.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_C, java.awt.event.InputEvent.CTRL_MASK));
         btnOpenCidade.setText("Cidades");
         btnOpenCidade.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -75,7 +79,8 @@ public class FrameMenu extends javax.swing.JFrame {
         });
         jMenu1.add(btnOpenCidade);
 
-        btnOpenEstado.setText("Estado");
+        btnOpenEstado.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_S, java.awt.event.InputEvent.CTRL_MASK));
+        btnOpenEstado.setText("Estados");
         btnOpenEstado.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnOpenEstadoActionPerformed(evt);
@@ -83,6 +88,7 @@ public class FrameMenu extends javax.swing.JFrame {
         });
         jMenu1.add(btnOpenEstado);
 
+        btnOpenPais.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_A, java.awt.event.InputEvent.CTRL_MASK));
         btnOpenPais.setText("Paises");
         btnOpenPais.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

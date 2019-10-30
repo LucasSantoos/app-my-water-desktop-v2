@@ -22,7 +22,7 @@ public class PessoaEndereco implements Serializable{
     private int id;
     
     @Column(name = "NOME", nullable = false, length = 100)
-    @SwingColumn(description = "Nome")
+    @SwingColumn(description = "Endereço")
     private String nome;
     
     @Column(name = "numero")
