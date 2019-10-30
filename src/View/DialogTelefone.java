@@ -56,7 +56,7 @@ public class DialogTelefone extends javax.swing.JDialog {
     private PessoaTelefone createObject() throws ParseException{
         return (new PessoaTelefone(
                 textId.getText().isEmpty()?0:Integer.parseInt(textId.getText()),
-                "",
+                textTelefone.getText(),
                 textTelefone.getText(),
                 (Pessoa)comboPessoa.getSelectedItem()
         ));
@@ -142,6 +142,11 @@ public class DialogTelefone extends javax.swing.JDialog {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
+        tableTelefone.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tableTelefoneMouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(tableTelefone);
 
         jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder("Dados"));
@@ -170,8 +175,18 @@ public class DialogTelefone extends javax.swing.JDialog {
         });
 
         buttonNovo.setText("Novo");
+        buttonNovo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonNovoActionPerformed(evt);
+            }
+        });
 
         buttonRemover.setText("Remover");
+        buttonRemover.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonRemoverActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -281,6 +296,47 @@ public class DialogTelefone extends javax.swing.JDialog {
         this.carregaTable(textFiltro.getText());
     }//GEN-LAST:event_buttonFiltrarActionPerformed
 
+    private void buttonNovoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonNovoActionPerformed
+        // TODO add your handling code here:
+        this.iniciaComponentes();
+    }//GEN-LAST:event_buttonNovoActionPerformed
+
+    private void buttonRemoverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonRemoverActionPerformed
+        // TODO add your handling code here:
+        if (textId.getText().isEmpty()){
+            JOptionPane.showMessageDialog(null, "Selecione");
+            return;
+        }
+        if (JOptionPane.showConfirmDialog(null, "Confirma?")!=0){
+            return;
+        }
+        try{
+            dao.remove(
+                dao.get(PessoaTelefone.class, Integer.parseInt(textId.getText())));
+            this.iniciaComponentes();
+            this.carregaTable();
+        }catch(Exception ex){
+            JOptionPane.showMessageDialog(null, ex.getMessage());
+        }
+    }//GEN-LAST:event_buttonRemoverActionPerformed
+    
+    private void tableTelefoneMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tableTelefoneMouseClicked
+        // TODO add your handling code here:
+        if (evt.getClickCount()==2){
+            int codigo=
+            Integer.parseInt(
+            tableTelefone.getValueAt(tableTelefone.getSelectedRow(), 0)+"");
+            PessoaTelefone v = dao.get(PessoaTelefone.class, codigo);
+            this.fillComponents(v);
+        }
+    }//GEN-LAST:event_tableTelefoneMouseClicked
+    
+    private void fillComponents(PessoaTelefone pessoatelefone){
+            textId.setText(pessoatelefone.getId()+"");
+            textTelefone.setText(pessoatelefone.getNroTelefone());
+            comboPessoa.setSelectedItem(pessoatelefone.getPessoa());
+        }
+    
     /**
      * @param args the command line arguments
      */

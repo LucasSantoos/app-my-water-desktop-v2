@@ -10,6 +10,8 @@ import Enums.TipoPessoa;
 import Model.Pessoa;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import static java.util.Date.parse;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JOptionPane;
 
@@ -68,7 +70,16 @@ public class DialogPessoa extends javax.swing.JDialog {
         super(parent, modal);
         initComponents();
     }
-
+    
+        private void fillComponents(Pessoa pessoa){
+            textId.setText(pessoa.getId()+"");
+            textNome.setText(pessoa.getNome());
+            textCpf.setText(pessoa.getCpf());
+            textDataNascimento.setText(formato.format(pessoa.getDtNasc()));
+            comboTipoPessoa.setSelectedItem(pessoa.getTipoPessoa());
+        }    
+        
+        
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -160,6 +171,11 @@ public class DialogPessoa extends javax.swing.JDialog {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
+        tablePessoa.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tablePessoaMouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(tablePessoa);
 
         jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder("Dados"));
@@ -187,6 +203,11 @@ public class DialogPessoa extends javax.swing.JDialog {
         }
 
         jButton1.setText("Novo");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         buttonSalvar.setText("Salvar");
         buttonSalvar.addActionListener(new java.awt.event.ActionListener() {
@@ -355,7 +376,39 @@ public class DialogPessoa extends javax.swing.JDialog {
 
     private void buttonRemoverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonRemoverActionPerformed
         // TODO add your handling code here:
+        
+         if (textId.getText().isEmpty()){
+            JOptionPane.showMessageDialog(null, "Selecione");
+            return;
+        }
+        if (JOptionPane.showConfirmDialog(null, "Confirma?")!=0){
+            return;
+        }
+        try{
+            dao.remove(
+                dao.get(Pessoa.class, Integer.parseInt(textId.getText())));
+            this.iniciaComponentes();
+            this.carregaTable();
+        }catch(Exception ex){
+            JOptionPane.showMessageDialog(null, ex.getMessage());
+        }
     }//GEN-LAST:event_buttonRemoverActionPerformed
+
+    private void tablePessoaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tablePessoaMouseClicked
+        // TODO add your handling code here:
+        if (evt.getClickCount()==2){
+            int codigo=
+            Integer.parseInt(
+            tablePessoa.getValueAt(tablePessoa.getSelectedRow(), 0)+"");
+            Pessoa v = dao.get(Pessoa.class, codigo);
+            this.fillComponents(v);
+        }
+    }//GEN-LAST:event_tablePessoaMouseClicked
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+         this.iniciaComponentes();
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
