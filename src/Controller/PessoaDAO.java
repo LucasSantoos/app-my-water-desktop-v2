@@ -15,4 +15,14 @@ public class PessoaDAO extends DAO<Pessoa>{
       + "order by a.nome","%"
       +filtro.toUpperCase()+"%");        
     }
+    
+    public List<Pessoa> getAllFuncionarios(){
+        return super.getAll(
+        "select a from Pessoa a where a.tipoPessoa like 'FUNCIONARIO' order by a.nome");
+    }
+    
+    public List<Pessoa> getAllClientes(){
+        return super.getAll(
+        "select a from Pessoa a where a.tipoPessoa like 'CLIENTE' order by a.nome");
+    }
 }

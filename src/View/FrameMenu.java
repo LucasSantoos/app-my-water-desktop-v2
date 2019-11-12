@@ -36,6 +36,7 @@ public class FrameMenu extends javax.swing.JFrame {
         btnOpenCidade = new javax.swing.JMenuItem();
         btnOpenEstado = new javax.swing.JMenuItem();
         btnOpenPais = new javax.swing.JMenuItem();
+        jMenuItem2 = new javax.swing.JMenuItem();
 
         jMenuItem1.setText("jMenuItem1");
 
@@ -97,6 +98,15 @@ public class FrameMenu extends javax.swing.JFrame {
         });
         jMenu1.add(btnOpenPais);
 
+        jMenuItem2.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_E, java.awt.event.InputEvent.ALT_MASK));
+        jMenuItem2.setText("Emissão conta");
+        jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem2ActionPerformed(evt);
+            }
+        });
+        jMenu1.add(jMenuItem2);
+
         jMenuBar1.add(jMenu1);
 
         setJMenuBar(jMenuBar1);
@@ -151,6 +161,12 @@ public class FrameMenu extends javax.swing.JFrame {
         dialogEstado.setVisible(true);
     }//GEN-LAST:event_btnOpenEstadoActionPerformed
 
+    private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
+        // TODO add your handling code here:
+        DialogEmissaoConta dialogEmissaoConta = new DialogEmissaoConta(this, rootPaneCheckingEnabled);
+        dialogEmissaoConta.setVisible(true);
+    }//GEN-LAST:event_jMenuItem2ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -196,5 +212,6 @@ public class FrameMenu extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
+    private javax.swing.JMenuItem jMenuItem2;
     // End of variables declaration//GEN-END:variables
 }
