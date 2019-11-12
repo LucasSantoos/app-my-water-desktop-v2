@@ -117,7 +117,7 @@ public class DialogEmissaoConta extends javax.swing.JDialog {
 
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder("Filtrar"));
 
-        jLabel1.setText("Endereco");
+        jLabel1.setText("Conta");
 
         buttonFiltrar.setText("Filtrar");
         buttonFiltrar.addActionListener(new java.awt.event.ActionListener() {
@@ -406,13 +406,7 @@ public class DialogEmissaoConta extends javax.swing.JDialog {
 
          if (textId.getText().isEmpty()){;
             JOptionPane.showMessageDialog(null, "Selecione uma conta para imprimir");
-            textNome.requestFocus();
-            return;
-        }
-        
-        if (textBairro.getText().trim().isEmpty()){
-            JOptionPane.showMessageDialog(null, "Bairro é Obrigatório");
-            textBairro.requestFocus();
+            textId.requestFocus();
             return;
         }
         DialogImprimirConta dialogImprimirConta = new DialogImprimirConta(new FrameMenu(), true, textId.getText());
