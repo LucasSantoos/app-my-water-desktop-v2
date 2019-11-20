@@ -3,7 +3,9 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/home/lucas/dev/java/app-my-water-desktop-v2/src/View/DialogEmissaoConta.java</file>
+            <file>file:/home/lucas/javao/app-my-water-desktop-v2/src/Controller/DAO.java</file>
+            <file>file:/home/lucas/javao/app-my-water-desktop-v2/src/Manager/Dados.java</file>
+            <file>file:/home/lucas/javao/app-my-water-desktop-v2/src/View/DialogEmissaoConta.java</file>
         </group>
     </open-files>
 </project-private>

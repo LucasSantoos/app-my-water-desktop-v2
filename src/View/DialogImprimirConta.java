@@ -5,7 +5,6 @@ import Controller.PessoaEnderecoDAO;
 import Model.EmissaoConta;
 import Model.PessoaEndereco;
 import java.math.RoundingMode;
-import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
 
 public class DialogImprimirConta extends javax.swing.JDialog {
@@ -39,10 +38,10 @@ public class DialogImprimirConta extends javax.swing.JDialog {
         textArea.append(this.conta.getFuncionario().getNome());
 
         textArea.append("\nMedição mês passado: ");
-        textArea.append(this.conta.getVlRelogioMesPassado().toString() + "Kw/h");
+        textArea.append(this.conta.getVlRelogioMesPassado().toString() + "M³");
 
         textArea.append("\nMedição mês atual: ");
-        textArea.append(this.conta.getVlRelogioMesAtual().toString() + " Kw/h");
+        textArea.append(this.conta.getVlRelogioMesAtual().toString() + "M³");
         
         textArea.append("\nData aferição: ");
         textArea.append(formato.format(this.conta.getDtAfericao()));
@@ -77,7 +76,7 @@ public class DialogImprimirConta extends javax.swing.JDialog {
         textArea = new javax.swing.JTextArea();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setTitle("Cadastro de endereços das pessoas");
+        setTitle("Imprimir");
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowOpened(java.awt.event.WindowEvent evt) {
                 formWindowOpened(evt);
